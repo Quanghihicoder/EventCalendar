@@ -1,0 +1,23 @@
+FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
+
+WORKDIR /src
+
+# restore
+COPY ["src/EventCalendar/EventCalendar.csproj", "EventCalendar/"]
+RUN dotnet restore "EventCalendar/EventCalendar.csproj"
+
+# build
+COPY ["src/EventCalendar", "EventCalendar/"]
+WORKDIR /src/EventCalendar
+RUN dotnet build "EventCalendar.csproj" -c Release -o /app/build
+
+# publish
+FROM build as publish
+RUN dotnet publish "EventCalendar.csproj" -c Release -o /app/publish
+
+FROM mcr.microsoft.com/dotnet/aspnet:9.0 
+WORKDIR /app
+EXPOSE 9000
+ENV ASPNETCORE_HTTP_PORTS=9000
+COPY --from=publish /app/publish .
+ENTRYPOINT ["dotnet", "EventCalendar.dll"]
