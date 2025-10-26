@@ -297,7 +297,7 @@ function HomePage() {
                 <span className="font-medium">Date:</span> {dateStr}
               </p>
               <p className="text-sm text-gray-500">
-                <span className="font-medium">Time:</span> {timeStr}
+                <span className="font-medium">Local Time:</span> {timeStr}
               </p>
               {venue && (
                 <>
