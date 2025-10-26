@@ -3,13 +3,6 @@
 set -e  # Exit immediately if a command fails
 
 # ------------------------------
-# Terraform: apply infrastructure
-# ------------------------------
-echo "Initializing and applying Terraform..."
-terraform init
-terraform apply -auto-approve
-
-# ------------------------------
 # ECR: Authenticate, build, push
 # ------------------------------
 echo "Build backend"

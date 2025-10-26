@@ -17,7 +17,6 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-      - uses: hashicorp/setup-terraform@v3
       - uses: aws-actions/configure-aws-credentials@v4
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
@@ -36,9 +35,6 @@ jobs:
         uses: actions/setup-dotnet@v3
         with:
           dotnet-version: "9.0.x"
-
-      - name: Install Terraform
-        uses: hashicorp/setup-terraform@v3
 
       - name: Create frontend .env.production
         run: |
