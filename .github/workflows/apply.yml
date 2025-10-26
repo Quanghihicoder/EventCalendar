@@ -11,8 +11,8 @@ on:
     if: github.event.pull_request.merged == true
 
 jobs:
-  terraform-apply:
-    name: Terraform Apply
+  code-apply:
+    name: Apply Code Change
     runs-on: ubuntu-latest
 
     steps:
@@ -35,6 +35,17 @@ jobs:
         uses: actions/setup-dotnet@v3
         with:
           dotnet-version: "9.0.x"
+
+      - name: Ping API URL before apply (if code deployed)
+        run: |
+          URL="${{ vars.VITE_API_URL }}/api"
+          echo "Pinging $URL ..."
+          RESPONSE=$(curl --write-out "%{http_code}" --silent --output /dev/null $URL)
+          echo "Response code: $RESPONSE"
+          if [ "$RESPONSE" -ne 200 ]; then
+            echo "ERROR: URL $URL is not reachable or did not return 200"
+            exit 1
+          fi
 
       - name: Create frontend .env.production
         run: |
