@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e  # Exit immediately if a command fails
+
 # Safety destroy
 ./destroy.sh
 

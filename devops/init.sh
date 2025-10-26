@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e  # Exit immediately if a command fails
+
 # Create container repo
 aws ecr create-repository \
   --repository-name teg/backend \
