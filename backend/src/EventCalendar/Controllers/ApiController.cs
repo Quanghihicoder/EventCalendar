@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace EventCalendar.Controllers
 {
     [ApiController]
-    [Route("api")]
+    [Route("[controller]")]
     public class ApiController : ControllerBase
     {
         [HttpGet]

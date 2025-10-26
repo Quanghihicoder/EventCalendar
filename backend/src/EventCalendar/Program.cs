@@ -4,6 +4,7 @@ var builder = WebApplication.CreateBuilder(args);
 var allowedOrigins = builder.Configuration.GetSection("AllowedOrigins").Get<string[]>();
 
 builder.Services.AddControllers();
+builder.Services.AddHttpClient();
 
 // Add CORS
 builder.Services.AddCors(options =>
