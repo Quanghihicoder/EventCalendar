@@ -11,7 +11,6 @@ interface SlidingOverlayProps {
 export default function SlidingOverlay({
   isOpen,
   onClose,
-  width = "w-80",
   children,
   title,
 }: SlidingOverlayProps) {
