@@ -203,7 +203,7 @@ function HomePage() {
   return (
     <div className="flex flex-col items-center w-full gap-4">
       <div className="pt-4">
-        <p className="font-bold">What's on at TEG Stadium !!!</p>
+        <p className="font-bold">What's on at TEG Stadium !</p>
       </div>
       <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 md:gap-10">
         {/* Date Controls */}
@@ -297,7 +297,7 @@ function HomePage() {
                 <span className="font-medium">Date:</span> {dateStr}
               </p>
               <p className="text-sm text-gray-500">
-                <span className="font-medium">Time:</span> {timeStr}
+                <span className="font-medium">Local Time:</span> {timeStr}
               </p>
               {venue && (
                 <>
