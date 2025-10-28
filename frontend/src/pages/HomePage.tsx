@@ -203,7 +203,7 @@ function HomePage() {
   return (
     <div className="flex flex-col items-center w-full gap-4">
       <div className="pt-4">
-        <p className="font-bold">What's on at TEG Stadium !!!</p>
+        <p className="font-bold">What's on at TEG Stadium !</p>
       </div>
       <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 md:gap-10">
         {/* Date Controls */}
